@@ -1,0 +1,18 @@
+<script type="text/javascript">
+    let countryCodes = ['', 'US', 'CA'];
+    
+    let checkCountryField = setInterval(function() {
+        const $select = document.querySelector('select[name="country"]');
+        
+        if ($select != null && $select.length > 0) {
+            for (let o of $select.options) {
+              if (!countryCodes.includes(o.value)) {
+                  o.disabled = true;
+                  o.style.display = 'none';
+              }
+            }
+            
+            clearInterval(checkCountryField);
+        }
+    }, 1000);
+</script>
